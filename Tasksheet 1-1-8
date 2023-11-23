@@ -1,0 +1,27 @@
+public class CumulativeSum {
+
+    public static void main(String[] args) {
+        int[] numbers = {4, 5, 10};
+        
+        // Call the variable arguments method and print the results
+        int[] sums = calculateCumulativeSum(numbers);
+        for (int i = 0; i < sums.length; i++) {
+            System.out.println("Cumulative sum for parameter " + (i + 1) + ": " + sums[i]);
+        }
+    }
+
+    // Variable arguments method to calculate cumulative sum
+    public static int[] calculateCumulativeSum(int... values) {
+        int[] sums = new int[values.length];
+
+        for (int i = 0; i < values.length; i++) {
+            int currentSum = 0;
+            for (int j = 1; j <= values[i]; j++) {
+                currentSum += j;
+            }
+            sums[i] = currentSum;
+        }
+
+        return sums;
+    }
+}
